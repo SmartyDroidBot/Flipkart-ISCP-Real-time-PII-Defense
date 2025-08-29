@@ -1,5 +1,3 @@
-
-import importlib.util
 try:
     import spacy
     nlp = spacy.load('en_core_web_sm')
@@ -12,7 +10,6 @@ import sys
 import csv
 import json
 import re
-from typing import Dict, Tuple
 
 # regex stuff (copied from stackoverflow)
 phone_re = re.compile(r'\b(\d{10})\b')
@@ -126,10 +123,10 @@ def detect(record):
 def main():
     # main function (pls work)
     if len(sys.argv)!=2:
-        print('Usage: python3 detector_full_candidate_name.py <input_csv>')
+        print('Usage: python3 detector_eeshaan_undar_bhat.py <input_csv>')
         sys.exit(1)
     inp = sys.argv[1]
-    outp = 'redacted_output_candidate_full_name.csv'
+    outp = 'redacted_output_eeshaan_undar_bhat.csv'
     with open(inp, newline='', encoding='utf-8') as f, open(outp, 'w', newline='', encoding='utf-8') as g:
         rdr = csv.DictReader(f)
         flds = ['record_id', 'redacted_data_json', 'is_pii']
